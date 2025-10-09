@@ -8,7 +8,9 @@
  * Taylor series for sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ...
  */
 
-#include "taylor_sine.h"
+//#include "taylor_sine.h"
+#include <math.h>
+#include <stdio.h>
 
 /* 
  * Calculate sine using Taylor series approximation
@@ -16,10 +18,35 @@
  * n: number of terms in the series
  * Returns: approximation of sin(x)
  */
+int factorial(int n) {
+    int f = 1;
+    for (int i = 2; i <= n; i++) {
+        f *= i;
+    }
+    return f;
+}
+
+
 double taylor_sine(double x, int n) {
+    double result = 0;
     // TODO: Implement the Taylor series approximation for sine
     // Hint: The series is: x - x^3/3! + x^5/5! - x^7/7! + ...
     // Use a loop to calculate n terms of the series
+
+    for (int i = 0; i < n; i++)
+    {
+      int antal = 2 * i + 1;
+      result = result + pow(-1, i) * pow(x, antal) / factorial(antal);
+    }
     
-    return 0.0; // placeholder - replace with your implementation
+    return result; 
+}
+
+int main() {
+    double x;
+    int n;
+    scanf("%lf %d", &x, &n);
+    printf("Vores program: %lf\n", taylor_sine(x, n));
+    printf("math.h: %lf\n", sin(x)); 
+    return 0;
 }
