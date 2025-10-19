@@ -39,12 +39,12 @@ double potens(double x, int n) {
 }
 
 double reduce_x(double x) {
-    while (x > 2 *M_PI)
+    while (x > M_PI)
     {
         x = x - 2 * M_PI;
     }
 
-    while (x < 0)
+    while (x < M_PI)
     {
         x = x + 2 * M_PI;
     }
