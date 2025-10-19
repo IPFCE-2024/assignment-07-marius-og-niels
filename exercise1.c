@@ -11,6 +11,8 @@
 #include "include/taylor_sine.h"
 #include <stdio.h>
 
+#define M_PI 3.14159265358979323846
+
 /* 
  * Calculate sine using Taylor series approximation
  * x: input value in radians
@@ -36,8 +38,22 @@ double potens(double x, int n) {
     
 }
 
+double reduce_x(double x) {
+    while (x > 2 *M_PI)
+    {
+        x = x - 2 * M_PI;
+    }
+
+    while (x < 0)
+    {
+        x = x + 2 * M_PI;
+    }
+    return x;
+}
+
 
 double taylor_sine(double x, int n) {
+    x = reduce_x(x);
     double result = 0;
     // TODO: Implement the Taylor series approximation for sine
     // Hint: The series is: x - x^3/3! + x^5/5! - x^7/7! + ...
