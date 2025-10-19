@@ -19,7 +19,7 @@
  * n: number of terms in the series
  * Returns: approximation of sin(x)
  */
-int factorial(int n) {
+double factorial(int n) {
     int f = 1;
     for (int i = 2; i <= n; i++) {
         f *= i;
