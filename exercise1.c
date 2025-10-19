@@ -8,7 +8,7 @@
  * Taylor series for sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ...
  */
 
-//#include "taylor_sine.h"
+#include "include/taylor_sine.h"
 #include <math.h>
 #include <stdio.h>
 
@@ -40,13 +40,4 @@ double taylor_sine(double x, int n) {
     }
     
     return result; 
-}
-
-int main() {
-    double x;
-    int n;
-    scanf("%lf %d", &x, &n);
-    printf("Vores program: %lf\n", taylor_sine(x, n));
-    printf("math.h: %lf\n", sin(x)); 
-    return 0;
 }
