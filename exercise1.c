@@ -9,7 +9,6 @@
  */
 
 #include "include/taylor_sine.h"
-#include <math.h>
 #include <stdio.h>
 
 /* 
@@ -26,6 +25,17 @@ int factorial(int n) {
     return f;
 }
 
+//Hamrende træls at github classroom ikke bruger "-lm", så vi ikke kan bruge math.h
+double potens(double x, int n) {
+    double result = 1;
+    for (int i = 0; i < n; i++)
+    {
+        result = result *x;
+    }
+    return result;
+    
+}
+
 
 double taylor_sine(double x, int n) {
     double result = 0;
@@ -36,7 +46,7 @@ double taylor_sine(double x, int n) {
     for (int i = 0; i < n; i++)
     {
       int antal = 2 * i + 1;
-      result = result + pow(-1, i) * pow(x, antal) / factorial(antal);
+      result = result + potens(-1, i) * potens(x, antal) / factorial(antal);
     }
     
     return result; 
