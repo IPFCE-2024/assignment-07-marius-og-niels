@@ -44,7 +44,7 @@ double reduce_x(double x) {
         x = x - 2 * M_PI;
     }
 
-    while (x < M_PI)
+    while (x < -M_PI)
     {
         x = x + 2 * M_PI;
     }
